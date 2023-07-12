@@ -1,20 +1,16 @@
 package com.qa;
 
-public class Animal {
+public abstract class Animal {
     //    Constructor
     public Animal() {
-        this.noise = "";
     }
     public Animal(String noise) {
-        this(1, 2, noise);
+        this(1, 2);
     }
     public Animal(int age) {
-        this(age, 2, "bow bow");
+        this(age, 2);
     }
     public Animal(int age, int maxSpeed) {
-        this(age, maxSpeed, "bow bow");
-    }
-    public Animal(int age, int maxSpeed, String noise) {
         this.age = age;
         this.maxSpeed = maxSpeed;
         this.noise = noise;
@@ -27,9 +23,7 @@ public class Animal {
     public int getMaxSpeed() {
         return this.maxSpeed;
     }
-    public String getNoise() {
-        return this.noise;
-    }
+    public abstract String getNoise();
 
     public boolean getIsAlive() {
         return this.isAlive;
@@ -42,9 +36,9 @@ public class Animal {
     public void setMaxSpeed(int maxSpeed) {
         this.maxSpeed = maxSpeed;
     }
-    public void setNoise(String noise) {
-        this.noise = noise;
-    }
+//    public void setNoise(String noise) {
+//        this.noise = noise;
+//    }
 
     public static void setDead() {
         Animal.isAlive = false;
