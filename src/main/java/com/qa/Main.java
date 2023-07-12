@@ -24,16 +24,24 @@ public class Main {
         Giraffe giraffe3 = new Giraffe(1.6);
 
         Animal[] animals = {dog1, dog2, dog3, giraffe1, giraffe2, giraffe3};
+        Swimable[] dogs = {dog1, dog2, dog3};
+
 
         for (Animal animal : animals) {
             if (animal instanceof Giraffe) {
                 System.out.println("I am a Giraffe with neck length, " + ((Giraffe) animal).getNeckLength() + ", my noise is " + animal.getNoise());
             } else if (animal instanceof Dog) {
-                System.out.println("I am a Dog called, " + ((Dog) animal).getName() + ", my noise is " + animal.getNoise());
+                System.out.println("I am a Dog called, " + ((Dog) animal).getName() + ", my noise is " + animal.getNoise() + "swimming length");
             } else {
                 System.out.println("you aren't an animal");
             }
         }
+
+        for (Swimable dog:
+             dogs) {
+            System.out.println("I am a dog therefore i can swim " + dog.swimEndurance());
+        }
+
 //        System.out.println("Animal a1 age is: " + a1.getAge());
 //        a1.setAge(13);
 //        System.out.println("Animal a1 age is: " + a1.getAge());

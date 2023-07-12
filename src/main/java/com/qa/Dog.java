@@ -1,6 +1,6 @@
 package com.qa;
 
-public class Dog extends Animal{
+public class Dog extends Animal implements Swimable{
     //    constructors
     public Dog() {
         super(1, 5);
@@ -37,4 +37,10 @@ public class Dog extends Animal{
 
     //    fields
     private String name;
+
+
+    @Override
+    public String swimEndurance() {
+        return "200m";
+    }
 }
