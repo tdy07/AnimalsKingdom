@@ -1,5 +1,7 @@
 package com.qa;
 
+import java.util.Date;
+
 public abstract class Animal {
     //    Constructor
     public Animal() {
@@ -13,7 +15,11 @@ public abstract class Animal {
     public Animal(int age, int maxSpeed) {
         this.age = age;
         this.maxSpeed = maxSpeed;
-        this.noise = noise;
+    }
+    public Animal(int age, int maxSpeed, Date birthDate) {
+        this.age = age;
+        this.maxSpeed = maxSpeed;
+        this.birthDate = birthDate;
     }
     //    Methods
     // Getters
@@ -24,11 +30,13 @@ public abstract class Animal {
         return this.maxSpeed;
     }
     public abstract String getNoise();
+    public Date getBirthDate() {
+        return birthDate;
+    }
 
     public boolean getIsAlive() {
         return this.isAlive;
     }
-
     // Setters
     public void setAge(int age) {
         this.age = age;
@@ -50,6 +58,7 @@ public abstract class Animal {
     }
 
     //    Fields
+    private Date birthDate;
     private int age;
     int maxSpeed;
     private String noise;
