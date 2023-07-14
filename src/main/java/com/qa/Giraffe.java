@@ -7,18 +7,30 @@ public class Giraffe extends Animal implements Comparable<Giraffe>{
     public Giraffe(){
     }
     public Giraffe(double neckLength) {
-        super(1, 5);
-        this.neckLength = neckLength;
-    }
+        this(neckLength, 5);
+        }
 
     public Giraffe(double neckLength, Date birthDate) {
-        super(1, 5, birthDate);
-        this.neckLength = neckLength;
+         this(neckLength, birthDate, 5);
     }
 
     public Giraffe(double neckLength, int age) {
-        super(age, 5);
-        this.neckLength = neckLength;
+        this(neckLength, new Date(20, 2, 10), 5);
+    }
+
+    public Giraffe(double neckLength, Date birthDate, int age) {
+        super(age, 5, birthDate);
+        try{
+            if (neckLength < 1) {
+                throw new NeckTooShortException();
+            }
+            else {this.neckLength = neckLength;}
+
+        } catch (NeckTooShortException e){
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("Great success (or not");
+        }
     }
 
     @Override

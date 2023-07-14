@@ -1,5 +1,6 @@
 package com.qa;
 
+import java.io.*;
 import java.util.*;
 
 public class Main {
@@ -12,6 +13,10 @@ public class Main {
 //          meth(s);
 //          System.out.println(s);
        animalClassTest();
+//        int x = dodgyMethod(2);
+//        System.out.println(x);
+//        readFile("/Users/tdy07/IdeaProjects/Animals/src/main/java/com/qa/poem.txt");
+//        writeFile("/Users/tdy07/IdeaProjects/Animals/src/main/java/com/qa/poem2.txt");
     }
 
     public static void animalClassTest(){
@@ -21,7 +26,7 @@ public class Main {
         Dog dog1 = new Dog("floof");
         Dog dog2 = new Dog("giraffe");
         Dog dog3 = new Dog("Matilda");
-        Giraffe giraffe1 = new Giraffe(1.7, 2);
+        Giraffe giraffe1 = new Giraffe(0.9);
         Giraffe giraffe2 = new Giraffe(22.0, 11);
         Giraffe giraffe3 = new Giraffe(11.6, 5);
         Giraffe giraffe4 = new Giraffe(5, new Date(20, 10, 10));
@@ -84,5 +89,49 @@ public class Main {
     }
     public static void meth(String str) {
         str = str + " World!";
+    }
+
+    public static int dodgyMethod(int day) {
+        int x=0;
+        try {
+            throw new Exception("Exception message");
+        }
+        catch (Exception e) {
+            return x += 10;
+        }
+        finally {
+            return x += 20;
+        }
+    }
+
+    public static void readFile(String filePath){
+        try {
+            FileInputStream fis = new FileInputStream(new File(filePath));
+            byte[] bArray = new byte[256];
+            int tot = 0, numRead;
+            for (; (numRead = fis.read(bArray)) != -1; tot += numRead) {
+                System.out.println(new String(bArray, 0, numRead));
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void writeFile(String filePath){
+        FileOutputStream fos;
+        try {
+            fos = new FileOutputStream(filePath);
+            OutputStreamWriter osr = new OutputStreamWriter(fos);
+            BufferedWriter bfr = new BufferedWriter(osr);
+
+            bfr.write("Hello world! TEST");
+            bfr.newLine();
+            bfr.write("New line achieved");
+            bfr.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
