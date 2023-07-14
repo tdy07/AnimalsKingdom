@@ -23,8 +23,8 @@ public class Main {
 //        Animal a1 = new Animal();
 //        Animal a2 = new Animal("wof wof");
 //        Animal a3 = new Animal(23, 42);
-        Dog dog1 = new Dog("floof");
-        Dog dog2 = new Dog("giraffe");
+        Dog dog1 = new Dog("Floof");
+        Dog dog2 = new Dog("Giraffe");
         Dog dog3 = new Dog("Matilda");
         Giraffe giraffe1 = new Giraffe(0.9);
         Giraffe giraffe2 = new Giraffe(22.0, 11);
@@ -34,6 +34,16 @@ public class Main {
         System.out.println("hgeghe" + giraffe4.getBirthDate());
         System.out.println("here" + giraffe1.compareTo(giraffe2));
 
+        List<Dog> dogsList = new ArrayList<>();
+        dogsList.add(dog2);
+        dogsList.add(dog1);
+        dogsList.add(dog3);
+
+        System.out.println("Dog list unsorted: " + dogsList);
+
+        dogsList.sort((d1, d2) -> d1.getName().compareTo(d2.getName()));
+
+        System.out.println("Dog list sorted: " + dogsList);
 //        Animal[] animals = {dog1, dog2, dog3, giraffe1, giraffe2, giraffe3};
 //        Swimable[] dogs = {dog1, dog2, dog3};
         List<Giraffe> giraffes = new ArrayList<>();
@@ -42,6 +52,7 @@ public class Main {
         giraffes.add(giraffe2);
         giraffes.add(giraffe3);
         System.out.println(giraffes);
+
 
         Collections.sort(giraffes);
         System.out.println(giraffes);

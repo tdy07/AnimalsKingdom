@@ -43,4 +43,9 @@ public class Dog extends Animal implements Swimable{
     public String swimEndurance() {
         return "200m";
     }
+
+    @Override
+    public String toString() {
+        return "I am a dog with name: " + this.name;
+    }
 }
